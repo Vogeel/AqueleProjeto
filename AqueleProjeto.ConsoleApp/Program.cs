@@ -25,7 +25,7 @@ namespace AqueleProjeto.ConsoleApp
             {
             menu:
                 Console.WriteLine("PRUDUTOS\n\nAperte 1 para colocar outro produto\naperte 2 vizualizar o historico dos produtos\naperte 3 para editar um produto\naperte 4 para excluir um produto\n\nCHAMADOS\n\naperte 5 para registrar um chamado\n" +
-                    "aperte 6 para editar um chamado\naperte 7 para excluir um chamado\naperte 8 para ver hitorico de chamados\n\naperte s para sair");
+                    "aperte 6 para editar um chamado\naperte 7 para excluir um chamado\naperte 8 para ver hitorico de chamados");
 
                 opcao = Console.ReadLine();
                 if (!(opcao == "1" || opcao == "2" || opcao == "3" || opcao == "4" || opcao == "5" || opcao == "6" || opcao == "7" || opcao == "8"))
@@ -34,10 +34,8 @@ namespace AqueleProjeto.ConsoleApp
                     Console.WriteLine("Opção inválida");
                     goto menu;
                 }
-                else if (opcao == "s")
-                {
-                    break;
-                }
+                
+
 
 
                 if (opcao == "1") // colocar outro produto
@@ -317,7 +315,7 @@ namespace AqueleProjeto.ConsoleApp
                             for (int j = 0; j < chamados.Length; j++)
                             {
                                
-                                 if (chamadoTitulo[j] != null)
+                                if (chamadoTitulo[j] != null)
                                 {
                                     Console.WriteLine("Nome do equipamento: " + chamadoTitulo[j]);
 
@@ -333,21 +331,25 @@ namespace AqueleProjeto.ConsoleApp
 
 
                                 }
-                                 if (chamadoEquipamento[j] != null)
-                                {
-                                string strdata = chamadoData[j].ToString();
-                                string[] dataseparada = strdata.Split("/");
+                                 if (chamadoData[j] == "99/99/9999")
+                                 {
+                            Console.WriteLine("Dias ativo: Item Excluido anteriormente");
+                                 }
+                                  else
+                                  {
+                                      string strdata = chamadoData[j].ToString();
+                                      string[] dataseparada = strdata.Split("/");
 
-                                int dia = Convert.ToInt32(dataseparada[0]);
-                                int mes = Convert.ToInt32(dataseparada[1]);
-                                int ano = Convert.ToInt32(dataseparada[2]);
-                                DateTime criacaoChamado = new DateTime(ano, mes, dia);
+                                      int dia = Convert.ToInt32(dataseparada[0]);
+                                      int mes = Convert.ToInt32(dataseparada[1]);
+                                      int ano = Convert.ToInt32(dataseparada[2]);
+                                      DateTime criacaoChamado = new DateTime(ano, mes, dia);
 
-                                DateTime diaHoje = DateTime.Now;
+                                      DateTime diaHoje = DateTime.Now;
 
-                                DiasChamadoAtivo = (diaHoje - criacaoChamado).Days;
-                                Console.WriteLine($"O chamados está à {DiasChamadoAtivo} dias ativo");
-                                }
+                                        DiasChamadoAtivo = (diaHoje - criacaoChamado).Days;
+                                        Console.WriteLine($"O chamados está à {DiasChamadoAtivo} dias ativo");
+                                  }
                                 
 
                                    Console.ReadLine();

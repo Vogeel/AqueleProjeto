@@ -169,8 +169,29 @@ namespace AqueleProjeto.ConsoleApp
 
                 if (opcao == "4")
                 {
+                     volta67:
                     Console.WriteLine("Digite o produto que queira excluir");
                     int excluir = Convert.ToInt32(Console.ReadLine());
+                    if (nome[excluir] == chamadoEquipamento[excluir])
+                    {
+                        for (int i = 0; i < chamados.Length; i++)
+                        {
+                            if (chamados[i] != null)
+                            {
+                                if (equipamentos[excluir][1] == chamados[i][2])
+                                {
+                                   Console.WriteLine("\n\nProibido excluir um registro vinculado a uma chamada. Exclua a chamada antes...");
+                                    Console.ReadKey();
+                                    goto volta67;
+                                }
+                                else
+                                    continue;
+                            }
+                            else if (equipamentos[i] == null)
+                            {
+                                continue;
+                            }
+                        }
                     Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine($"item {excluir} Excluido com sucesso");
                     Console.ResetColor();

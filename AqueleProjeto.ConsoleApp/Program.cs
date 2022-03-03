@@ -299,7 +299,7 @@ namespace AqueleProjeto.ConsoleApp
                             chamadoTitulo[Excluirchamado] = "Item Excluido anteriormente";
                             chamadoDescrição[Excluirchamado] = "Item Excluido anteriormente";
                             chamadoEquipamento[Excluirchamado] = "Item Excluido anteriormente";
-                            chamadoData[Excluirchamado] = "99/99/9999";                         
+                            chamadoData[Excluirchamado] = "Item Excluido anteriormente";                         
                             
                             Console.Clear();
                             goto menu;
@@ -331,7 +331,7 @@ namespace AqueleProjeto.ConsoleApp
 
 
                                 }
-                                 if (chamadoData[j] == "99/99/9999")
+                                 if (chamadoData[j] == "Item Excluido anteriormente")
                                  {
                             Console.WriteLine("Dias ativo: Item Excluido anteriormente");
                                  }

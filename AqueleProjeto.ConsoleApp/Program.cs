@@ -20,6 +20,7 @@ namespace AqueleProjeto.ConsoleApp
             string opcao = "";
             int DiasChamadoAtivo = 0;
             int ii = 0;
+            int contagem = 0;
 
             do
             {
@@ -196,9 +197,7 @@ namespace AqueleProjeto.ConsoleApp
 
                 else if(opcao == "5")
                 {
-                    for (int i = 0; i < chamados.Length; i++)
-
-                    {
+                    
 
                     volta3:
                         Console.WriteLine("Qual o titulo do chamado?");
@@ -213,20 +212,20 @@ namespace AqueleProjeto.ConsoleApp
                         }
                         else
                         {
-                            chamadoTitulo[i] = nomes;
+                            chamadoTitulo[contagem] = nomes;
                         }
 
                         Console.WriteLine("Descrição do chamado");
-                        chamadoDescrição[i] = Convert.ToString(Console.ReadLine());
+                        chamadoDescrição[contagem] = Convert.ToString(Console.ReadLine());
 
                         Console.WriteLine("Qual o equipamento do chamapo");
-                        chamadoEquipamento[i] = Convert.ToString(Console.ReadLine());
+                        chamadoEquipamento[contagem] = Convert.ToString(Console.ReadLine());
 
                         Console.WriteLine("Qual a data do chamado (dd/mm/aaa)");
-                        chamadoData[i] = Convert.ToString(Console.ReadLine());
+                        chamadoData[contagem] = Convert.ToString(Console.ReadLine());
                         Console.Clear();
-                        break;
-                    }
+                    contagem++;
+                    
                 }
                 else if(opcao == "6")
                         {

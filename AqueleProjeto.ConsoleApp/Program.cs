@@ -19,7 +19,7 @@ namespace AqueleProjeto.ConsoleApp
             string[] chamadoEquipamento = new string[1000];
             string opcao = "";
             int DiasChamadoAtivo = 0;
-            string menu = "";
+            int ii = 0;
 
             do
             {
@@ -41,28 +41,27 @@ namespace AqueleProjeto.ConsoleApp
                 if (opcao == "1") // colocar outro produto
                 {
 
-                    for (int i = 0; i < equipamentos.Length; i++)
-                    {
-                        NomeEquipamentos(nome, i);
+                    
+                        NomeEquipamentos(nome, ii);
 
-                        Preco(preco, i);
+                        Preco(preco, ii);
 
-                        NumeroDeSerie(numerodeserie, i);
+                        NumeroDeSerie(numerodeserie, ii);
 
-                        DataDeFabricacao(datadefabricacao, i);
+                        DataDeFabricacao(datadefabricacao, ii);
 
-                        Fabricante(fabricante, i);
+                        Fabricante(fabricante, ii);
                         Console.Clear();
-                        break;
-                    }
+                    ii++;
+                    goto menu;
                 }
 
 
-                if (opcao == "2") // historico
+                else if (opcao == "2") // vizualir equipamentos
                 {
 
                     
-                    for (int i = 0;i <equipamentos.Length; i++)
+                    for (int i = 0;i < equipamentos.Length; i++)
                     {
                         if (nome[i] != null)
                         {
@@ -75,17 +74,20 @@ namespace AqueleProjeto.ConsoleApp
 
 
                             Console.WriteLine("Produto fabricado pelo(a): " + fabricante[i]);
+                            Console.WriteLine();
                         }
+
+
                         
-                        
+                   
                     }
                     Console.ReadLine();
                     Console.Clear();
-                    break;
+                    goto menu;
                 }
 
 
-                if (opcao == "3")
+                else if(opcao == "3")
                 {
                     Console.WriteLine("Digite o produto que queira editar");
                     
@@ -167,7 +169,7 @@ namespace AqueleProjeto.ConsoleApp
 
                 }
 
-                if (opcao == "4")
+                else if(opcao == "4")
                 {
                      
                     Console.WriteLine("Digite o produto que queira excluir");
@@ -192,7 +194,7 @@ namespace AqueleProjeto.ConsoleApp
                     
                 }
 
-                if (opcao == "5")
+                else if(opcao == "5")
                 {
                     for (int i = 0; i < chamados.Length; i++)
 
@@ -226,7 +228,7 @@ namespace AqueleProjeto.ConsoleApp
                         break;
                     }
                 }
-                        if (opcao == "6")
+                else if(opcao == "6")
                         {
                             Console.WriteLine("Digite o chamado que queira editar");
                             
@@ -295,7 +297,7 @@ namespace AqueleProjeto.ConsoleApp
 
                         }
 
-                        if (opcao == "7")
+                else if(opcao == "7")
                         {
                             Console.WriteLine("Digite o chamado que queira excluir");
                             int Excluirchamado = Convert.ToInt32(Console.ReadLine());
@@ -315,7 +317,7 @@ namespace AqueleProjeto.ConsoleApp
 
 
 
-                        if (opcao == "8") // historico chamados
+                else if(opcao == "8") // historico chamados
                         {
 
 
@@ -380,36 +382,36 @@ namespace AqueleProjeto.ConsoleApp
 
             } while (opcao == "1" || opcao == "2" || opcao == "3" || opcao == "4" || opcao == "5" || opcao == "6" || opcao == "7" || opcao == "8");
 
-            static string Preco(string[] preco, int i)
+            static string Preco(string[] preco, int ii)
             {
                 Console.WriteLine("Qual o preço do produto?");
-                preco[i] = Convert.ToString(Console.ReadLine());
-                return preco[i];
+                preco[ii] = Convert.ToString(Console.ReadLine());
+                return preco[ii];
             }
 
-            static string NumeroDeSerie(string[] numerodeserie, int i)
+            static string NumeroDeSerie(string[] numerodeserie, int ii)
             {
                 Console.WriteLine("Qual o numero de serie do produto?");
-                numerodeserie[i] = Convert.ToString(Console.ReadLine());
-                return numerodeserie[i];
+                numerodeserie[ii] = Convert.ToString(Console.ReadLine());
+                return numerodeserie[ii];
             }
 
-            static string DataDeFabricacao(string[] datadefabricacao, int i)
+            static string DataDeFabricacao(string[] datadefabricacao, int ii)
             {
                 Console.WriteLine("Qual a data de fabricação do produto?");
-                datadefabricacao[i] = Convert.ToString(Console.ReadLine());
-                return datadefabricacao[i];
+                datadefabricacao[ii] = Convert.ToString(Console.ReadLine());
+                return datadefabricacao[ii];
             }
 
-            static string Fabricante(string[] fabricante, int i)
+            static string Fabricante(string[] fabricante, int ii)
             {
                 Console.WriteLine("Qual o fabricante do produto?");
-                fabricante[i] = Convert.ToString(Console.ReadLine());
-                return fabricante[i];
+                fabricante[ii] = Convert.ToString(Console.ReadLine());
+                return fabricante[ii];
 
                 
             }
-            static string NomeEquipamentos(string[] nome, int i)
+            static string NomeEquipamentos(string[] nome, int ii)
             {
             volta:
                 Console.WriteLine("Qual o nome do produto?");
@@ -424,9 +426,9 @@ namespace AqueleProjeto.ConsoleApp
                 }
                 else
                 {
-                    nome[i] = nomes;
+                    nome[ii] = nomes;
                 }
-                return nome[i];
+                return nome[ii];
             }
         }
     }

@@ -62,7 +62,7 @@ namespace AqueleProjeto.ConsoleApp
                 {
 
                     
-                    for (int i = 0;i < 1000; i++)
+                    for (int i = 0;i <equipamentos.Length; i++)
                     {
                         if (nome[i] != null)
                         {
@@ -77,11 +77,11 @@ namespace AqueleProjeto.ConsoleApp
                             Console.WriteLine("Produto fabricado pelo(a): " + fabricante[i]);
                         }
                         
-                        Console.ReadLine();
-                        Console.Clear();
-                        break;
+                        
                     }
-
+                    Console.ReadLine();
+                    Console.Clear();
+                    break;
                 }
 
 
@@ -169,41 +169,27 @@ namespace AqueleProjeto.ConsoleApp
 
                 if (opcao == "4")
                 {
-                     volta67:
+                     
                     Console.WriteLine("Digite o produto que queira excluir");
                     int excluir = Convert.ToInt32(Console.ReadLine());
-                    if (nome[excluir] == chamadoEquipamento[excluir])
-                    {
-                        for (int i = 0; i < chamados.Length; i++)
-                        {
-                            if (chamados[i] != null)
-                            {
-                                if (equipamentos[excluir][1] == chamados[i][2])
-                                {
-                                   Console.WriteLine("\n\nProibido excluir um registro vinculado a uma chamada. Exclua a chamada antes...");
-                                    Console.ReadKey();
-                                    goto volta67;
-                                }
-                                else
-                                    continue;
-                            }
-                            else if (equipamentos[i] == null)
-                            {
-                                continue;
-                            }
-                        }
-                    Console.ForegroundColor = ConsoleColor.Red;
-                    Console.WriteLine($"item {excluir} Excluido com sucesso");
-                    Console.ResetColor();
-                    Console.ReadLine();
-                    nome[excluir] = "Item Excluido anteriormente";
-                    preco[excluir] = "Item Excluido anteriormente";
-                    numerodeserie[excluir] = "Item Excluido anteriormente";
-                    datadefabricacao[excluir] = "Item Excluido anteriormente";
-                    fabricante[excluir] = "Item Excluido anteriormente";
                     
-                    Console.Clear();
-                        break;
+                        
+                                Console.ForegroundColor = ConsoleColor.Red;
+                                Console.WriteLine($"item {excluir} Excluido com sucesso");
+                                Console.ResetColor();
+                                Console.ReadLine();
+                                nome[excluir] = "Item Excluido anteriormente";
+                                preco[excluir] = "Item Excluido anteriormente";
+                                numerodeserie[excluir] = "Item Excluido anteriormente";
+                                datadefabricacao[excluir] = "Item Excluido anteriormente";
+                                fabricante[excluir] = "Item Excluido anteriormente";
+
+                                Console.Clear();
+                                goto menu;
+                            
+                        
+                      
+                    
                 }
 
                 if (opcao == "5")

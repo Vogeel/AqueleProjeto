@@ -362,7 +362,7 @@ namespace AqueleProjeto.ConsoleApp
 
                                    Console.ReadLine();
                                    Console.Clear();
-                                   break;
+                                   goto menu;
                             }
 
                         }
